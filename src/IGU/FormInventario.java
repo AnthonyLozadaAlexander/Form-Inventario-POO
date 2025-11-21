@@ -95,21 +95,26 @@ public class FormInventario extends JFrame {
 
         if(isEmpty()){return;}
 
-        String nombre = txtProducto.getText();
-        double precio = D(txtPrecio.getText());
-
         int row = TablaProductos.getSelectedRow(); // fila seleccionada
 
         if(verificarFilaSeleccionada(row)){
             return;
         }
 
+        String nombre = JOptionPane.showInputDialog(this, "Ingrese El Nuevo Producto: ", "Producto["+row+"]",
+                JOptionPane.INFORMATION_MESSAGE);
+        // toma el nuevo precio en String
+        String precioStr =  JOptionPane.showInputDialog(this, "Ingrese El Nuevo Precio: ", "Precio["+row+"]",
+                JOptionPane.INFORMATION_MESSAGE);
+        // convierte el precio de String a double
+        double precio = D(precioStr);
+
         // se edita la lista de objeto.
         listaProductos.set(row, new Producto(nombre, precio));
 
         JOptionPane.showMessageDialog(this, "Se Edito El Producto["+row+"]: \n" +
                 "Nombre: " + nombre + "\n" +
-                "Precio: " + precio + "$\n", "Modificar", JOptionPane.INFORMATION_MESSAGE);
+                "Precio: " + precio + "$\n", "Producto["+row+"]", JOptionPane.INFORMATION_MESSAGE);
 
         // se edita la tabla.
         modelProducts.setValueAt(nombre, row, 1);
