@@ -4,6 +4,11 @@
 
 package IGU;
 
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Insets;
 import Clases.Producto;
 
 import java.awt.Color;
@@ -27,6 +32,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FormInventario extends JFrame {
 
+
     private DefaultTableModel modelProducts;
     private ArrayList<Producto> listaProductos = new ArrayList<>();
 
@@ -49,11 +55,19 @@ public class FormInventario extends JFrame {
     private void agregarP(){
         String nombre = txtNombre.getText();
         double precio = D(txtPrecio.getText());
+
+        int count = 0, index = 0;
+
+        listaProductos.add(new Producto(nombre, precio));
+        for(Producto p: listaProductos){
+            if(p.getNombre().equals(nombre)){index = count;}
+            count++;
+        }
+        agregarProducto(index, nombre, precio);
     }
 
     private void initComponents() {
         setTitle("Formulario - Inventario");
-        setLocationRelativeTo(null);
         setResizable(false);
 
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
@@ -77,6 +91,7 @@ public class FormInventario extends JFrame {
         txtHistorial = new JTextArea();
 
         //======== this ========
+        setMaximumSize(new Dimension(800, 670));
         setName("this");
         var contentPane = getContentPane();
 
@@ -95,17 +110,17 @@ public class FormInventario extends JFrame {
             panel1.setLayout(panel1Layout);
             panel1Layout.setHorizontalGroup(
                 panel1Layout.createParallelGroup()
-                    .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addContainerGap(302, Short.MAX_VALUE)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
                         .addComponent(label1, GroupLayout.PREFERRED_SIZE, 271, GroupLayout.PREFERRED_SIZE)
-                        .addGap(229, 229, 229))
+                        .addContainerGap(136, Short.MAX_VALUE))
             );
             panel1Layout.setVerticalGroup(
                 panel1Layout.createParallelGroup()
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addGap(29, 29, 29)
                         .addComponent(label1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(30, Short.MAX_VALUE))
+                        .addContainerGap(29, Short.MAX_VALUE))
             );
         }
 
@@ -165,7 +180,7 @@ public class FormInventario extends JFrame {
             panel2Layout.setHorizontalGroup(
                 panel2Layout.createParallelGroup()
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
+                        .addGap(47, 47, 47)
                         .addGroup(panel2Layout.createParallelGroup()
                             .addGroup(panel2Layout.createSequentialGroup()
                                 .addGap(46, 46, 46)
@@ -180,12 +195,12 @@ public class FormInventario extends JFrame {
                                     .addComponent(btnEditar, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnBuscar, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnEliminar, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(44, Short.MAX_VALUE))
+                        .addContainerGap(43, Short.MAX_VALUE))
             );
             panel2Layout.setVerticalGroup(
                 panel2Layout.createParallelGroup()
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(124, 124, 124)
                         .addComponent(label2)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -201,7 +216,7 @@ public class FormInventario extends JFrame {
                         .addComponent(btnBuscar)
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminar)
-                        .addContainerGap(27, Short.MAX_VALUE))
+                        .addContainerGap(198, Short.MAX_VALUE))
             );
         }
 
@@ -228,28 +243,30 @@ public class FormInventario extends JFrame {
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
-                .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(11, 11, 11)
+                    .addContainerGap()
                     .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(contentPaneLayout.createParallelGroup()
                         .addComponent(scrollPane2)
                         .addComponent(scrollPane3)
+                        .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE))
                     .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
                     .addGroup(contentPaneLayout.createParallelGroup()
-                        .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 386, GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
-                    .addGap(660, 660, 660)
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 310, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addGap(635, 635, 635)
                     .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
