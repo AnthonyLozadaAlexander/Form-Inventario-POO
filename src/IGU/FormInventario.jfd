@@ -10,7 +10,7 @@ new FormModel {
 			name: "this"
 			"maximumSize": new java.awt.Dimension( 800, 670 )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq l {space :p:115:p, comp label1:::p:271:p, space ::136:x}}"
+				"$horizontalGroup": "par l {seq t {space ::133:x, comp label1:::p:271:p, space :p:118:p}}"
 				"$verticalGroup": "par l {seq l {space :p:29:p, comp label1:::p:34:p, space ::29:x}}"
 			} ) {
 				name: "panel1"
