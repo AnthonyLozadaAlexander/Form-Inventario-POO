@@ -31,9 +31,19 @@ public class FormInventario extends JFrame {
         TablaProductos.setModel(modelProducts);
     }
 
+    public double D(String txt){
+        double convertD = Double.parseDouble(txt);
+        return convertD;
+    }
+
     private void agregarProducto(int Indice, String nombre, double precio){
         Object [] row = {Indice, nombre, precio};
         modelProducts.addRow(row);  }
+
+    private void agregarP(){
+        String nombre = txtNombre.getText();
+        double precio = D(txtPrecio.getText());
+    }
 
     private void initComponents() {
         setTitle("Formulario - Inventario");
@@ -48,9 +58,9 @@ public class FormInventario extends JFrame {
         txtResultados = new JTextArea();
         panel2 = new JPanel();
         label2 = new JLabel();
-        textField1 = new JTextField();
+        txtNombre = new JTextField();
         label3 = new JLabel();
-        textField2 = new JTextField();
+        txtPrecio = new JTextField();
         btnEliminar = new JButton();
         btnIngresar = new JButton();
         btnEditar = new JButton();
@@ -113,16 +123,16 @@ public class FormInventario extends JFrame {
             label2.setFont(new Font("CaskaydiaMono NF SemiBold", Font.PLAIN, 20));
             label2.setName("label2");
 
-            //---- textField1 ----
-            textField1.setName("textField1");
+            //---- txtNombre ----
+            txtNombre.setName("txtNombre");
 
             //---- label3 ----
             label3.setText("Precio");
             label3.setFont(new Font("CaskaydiaMono NF SemiBold", Font.PLAIN, 20));
             label3.setName("label3");
 
-            //---- textField2 ----
-            textField2.setName("textField2");
+            //---- txtPrecio ----
+            txtPrecio.setName("txtPrecio");
 
             //---- btnEliminar ----
             btnEliminar.setText("Eliminar");
@@ -154,9 +164,9 @@ public class FormInventario extends JFrame {
                             .addGroup(panel2Layout.createSequentialGroup()
                                 .addGap(46, 46, 46)
                                 .addComponent(label3))
-                            .addComponent(textField2, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPrecio, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
                             .addComponent(label2)
-                            .addComponent(textField1, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombre, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel2Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(panel2Layout.createParallelGroup()
@@ -172,11 +182,11 @@ public class FormInventario extends JFrame {
                         .addGap(27, 27, 27)
                         .addComponent(label2)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label3)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPrecio, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnIngresar)
                         .addGap(18, 18, 18)
@@ -250,9 +260,9 @@ public class FormInventario extends JFrame {
     private JTextArea txtResultados;
     private JPanel panel2;
     private JLabel label2;
-    private JTextField textField1;
+    private JTextField txtNombre;
     private JLabel label3;
-    private JTextField textField2;
+    private JTextField txtPrecio;
     private JButton btnEliminar;
     private JButton btnIngresar;
     private JButton btnEditar;
