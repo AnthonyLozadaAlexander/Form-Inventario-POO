@@ -10,6 +10,14 @@ public class Producto {
         this.precio = precio;
     }
 
+    private void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+
+    private void setPrecio(double precio){
+        this.precio = precio;
+    }
+
     public String getNombre(){
         return nombre;
     }
