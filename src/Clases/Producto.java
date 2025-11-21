@@ -10,11 +10,11 @@ public class Producto {
         this.precio = precio;
     }
 
-    private void setNombre(String nombre){
+    public void setNombre(String nombre){
         this.nombre = nombre;
     }
 
-    private void setPrecio(double precio){
+    public void setPrecio(double precio){
         this.precio = precio;
     }
 
