@@ -96,10 +96,21 @@ public class FormInventario extends JFrame {
                     JOptionPane.ERROR_MESSAGE);
             return;
         }
+
+        // se edita la lista de objeto.
+        listaProductos.set(row, new Producto(nombre, precio));
+
+        // se edita la tabla.
+        modelProducts.setValueAt(nombre, row, 1);
+        modelProducts.setValueAt(precio, row, 2);
     }
 
     private void btnIngresar(ActionEvent e) {
         agregarP();
+    }
+
+    private void btnEditar(ActionEvent e) {
+        editarP();
     }
 
     private void initComponents() {
@@ -206,6 +217,7 @@ public class FormInventario extends JFrame {
             btnEditar.setText("Editar");
             btnEditar.setFont(new Font("CaskaydiaMono NF SemiBold", Font.PLAIN, 18));
             btnEditar.setName("btnEditar");
+            btnEditar.addActionListener(e -> btnEditar(e));
 
             //---- btnBuscar ----
             btnBuscar.setText("Buscar");
