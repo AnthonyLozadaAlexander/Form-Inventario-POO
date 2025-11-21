@@ -80,6 +80,15 @@ public class FormInventario extends JFrame {
         agregarProducto(index, nombre, precio);
     }
 
+    public boolean verificarFilaSeleccionada(int row){
+        if(row < 0){
+            JOptionPane.showMessageDialog(this, "Error: Debe Seleccionar una Fila", "ERROR",
+                    JOptionPane.ERROR_MESSAGE);
+            return true;
+        }
+        return false;
+    }
+
     private void editarP(){
         if(listaProductos.isEmpty()){JOptionPane.showMessageDialog(this, "ERROR: No Hay Productos Registrados",
                 "ERROR", JOptionPane.ERROR_MESSAGE); return;}
@@ -91,9 +100,7 @@ public class FormInventario extends JFrame {
 
         int row = TablaProductos.getSelectedRow(); // fila seleccionada
 
-        if(row < 0){
-            JOptionPane.showMessageDialog(this, "Error: Debe Seleccionar una Fila Para Poder Editar", "ERROR",
-                    JOptionPane.ERROR_MESSAGE);
+        if(verificarFilaSeleccionada(row)){
             return;
         }
 
