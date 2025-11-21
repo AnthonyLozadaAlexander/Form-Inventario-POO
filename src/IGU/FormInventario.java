@@ -80,6 +80,24 @@ public class FormInventario extends JFrame {
         agregarProducto(index, nombre, precio);
     }
 
+    private void editarP(){
+        if(listaProductos.isEmpty()){JOptionPane.showMessageDialog(this, "ERROR: No Hay Productos Registrados",
+                "ERROR", JOptionPane.ERROR_MESSAGE); return;}
+
+        if(isEmpty()){return;}
+
+        String nombre = txtProducto.getText();
+        double precio = D(txtPrecio.getText());
+
+        int row = TablaProductos.getSelectedRow(); // fila seleccionada
+
+        if(row < 0){
+            JOptionPane.showMessageDialog(this, "Error: Debe Seleccionar una Fila Para Poder Editar", "ERROR",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    }
+
     private void btnIngresar(ActionEvent e) {
         agregarP();
     }
