@@ -9,6 +9,7 @@ public class main {
         FlatArcOrangeIJTheme.setup();
         FormInventario Window = new FormInventario();
         Window.setVisible(true);
-        Window.setSize(800, 700);
+        Window.setSize(850, 670);
+        Window.setLocationRelativeTo(null);
     }
 }
