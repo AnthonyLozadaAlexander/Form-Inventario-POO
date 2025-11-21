@@ -100,6 +100,10 @@ public class FormInventario extends JFrame {
         // se edita la lista de objeto.
         listaProductos.set(row, new Producto(nombre, precio));
 
+        JOptionPane.showMessageDialog(this, "Se Edito El Producto["+row+"]: \n" +
+                "Nombre: " + nombre + "\n" +
+                "Precio: " + precio + "$\n", "Modificar", JOptionPane.INFORMATION_MESSAGE);
+
         // se edita la tabla.
         modelProducts.setValueAt(nombre, row, 1);
         modelProducts.setValueAt(precio, row, 2);
