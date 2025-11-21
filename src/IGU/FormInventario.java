@@ -116,7 +116,7 @@ public class FormInventario extends JFrame {
         String precioStr =  JOptionPane.showInputDialog(this, "Ingrese El Nuevo Precio: ", "Precio["+row+"]",
                 JOptionPane.INFORMATION_MESSAGE);
 
-        if(precioStr == null || nombre == null){ System.out.println("Estan Vacios");  return;}
+        if(precioStr == null || nombre == null){ System.out.println("No Se Ingreso Nada, Return");  return;}
 
         // convierte el precio de String a double
         double precio = D(precioStr);
