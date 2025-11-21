@@ -80,9 +80,12 @@ public class FormInventario extends JFrame {
 
         agregarProducto(index, nombre, precio);
 
+        txtHistorial.setText("Producto["+index+"] Agregado: \n");
         for(Producto p: listaProductos){
             datos.append(p.mostrarInfo() + "\n");
         }
+
+        txtHistorial.append(datos.toString());
 
     }
 
@@ -112,6 +115,9 @@ public class FormInventario extends JFrame {
         // toma el nuevo precio en String
         String precioStr =  JOptionPane.showInputDialog(this, "Ingrese El Nuevo Precio: ", "Precio["+row+"]",
                 JOptionPane.INFORMATION_MESSAGE);
+
+        if(precioStr == null || nombre == null){ System.out.println("Estan Vacios");  return;}
+
         // convierte el precio de String a double
         double precio = D(precioStr);
 
