@@ -1,12 +1,14 @@
 package main;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import IGU.FormInventario;
 
 public class main {
     public static void main(String[] args) {
-        FlatLightLaf.setup();
+        FlatArcOrangeIJTheme.setup();
         FormInventario Window = new FormInventario();
         Window.setVisible(true);
+        Window.setSize(800, 700);
     }
 }
