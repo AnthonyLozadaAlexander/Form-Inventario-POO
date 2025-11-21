@@ -4,8 +4,11 @@
 
 package IGU;
 
+import Clases.Producto;
+
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,7 +26,10 @@ import javax.swing.table.DefaultTableModel;
  * @author USUARIO
  */
 public class FormInventario extends JFrame {
+
     private DefaultTableModel modelProducts;
+    private ArrayList<Producto> listaProductos = new ArrayList<>();
+
     public FormInventario() {
         initComponents();
         String[] columnas = {"Indice", "Nombre Producto", "Precio"};
