@@ -28,8 +28,8 @@ new FormModel {
 				} )
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq l {space :p:41:p, par l {seq l {space :p:46:p, comp label3:::p::p}, comp textField2::l:p:170:p, comp label2:::p::p, comp textField1:::p:170:p, seq l {space :p:18:p, par l {comp btnIngresar:::p:132:p, comp btnEditar::l:p:132:p, comp btnBuscar::l:p:132:p, comp btnEliminar::l:p:132:p}}}, space ::44:x}}"
-				"$verticalGroup": "par l {seq l {space :p:27:p, comp label2:::p::p, space :::p, comp textField1:::p::p, space :::p, comp label3:::p::p, space :::p, comp textField2:::p::p, space s:::p, comp btnIngresar:::p::p, space s:::p, comp btnEditar:::p::p, space s:::p, comp btnBuscar:::p::p, space s:::p, comp btnEliminar:::p::p, space ::27:x}}"
+				"$horizontalGroup": "par l {seq l {space :p:41:p, par l {seq l {space :p:46:p, comp label3:::p::p}, comp txtPrecio::l:p:170:p, comp label2:::p::p, comp txtNombre:::p:170:p, seq l {space :p:18:p, par l {comp btnIngresar:::p:132:p, comp btnEditar::l:p:132:p, comp btnBuscar::l:p:132:p, comp btnEliminar::l:p:132:p}}}, space ::44:x}}"
+				"$verticalGroup": "par l {seq l {space :p:27:p, comp label2:::p::p, space :::p, comp txtNombre:::p::p, space :::p, comp label3:::p::p, space :::p, comp txtPrecio:::p::p, space s:::p, comp btnIngresar:::p::p, space s:::p, comp btnEditar:::p::p, space s:::p, comp btnBuscar:::p::p, space s:::p, comp btnEliminar:::p::p, space ::27:x}}"
 			} ) {
 				name: "panel2"
 				"background": new java.awt.Color( 255, 255, 255, 255 )
@@ -40,7 +40,7 @@ new FormModel {
 					"font": &Font0 new java.awt.Font( "CaskaydiaMono NF SemiBold", 0, 20 )
 				} )
 				add( new FormComponent( "javax.swing.JTextField" ) {
-					name: "textField1"
+					name: "txtNombre"
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label3"
@@ -48,7 +48,7 @@ new FormModel {
 					"font": #Font0
 				} )
 				add( new FormComponent( "javax.swing.JTextField" ) {
-					name: "textField2"
+					name: "txtPrecio"
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "btnEliminar"
