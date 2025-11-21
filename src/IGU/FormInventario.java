@@ -9,6 +9,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
 import Clases.Producto;
 
 import java.awt.Color;
@@ -39,13 +40,30 @@ public class FormInventario extends JFrame {
         return convertD;
     }
 
+    private Boolean isEmpty(){
+        if(txtProducto.getText().trim().isEmpty() || txtPrecio.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Error: No Deben Haber Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return true;
+        }
+
+        return false;
+    }
+
     private void agregarProducto(int Indice, String nombre, double precio){
         Object [] row = {Indice, nombre, precio};
         modelProducts.addRow(row);  }
 
     private void agregarP(){
-        String nombre = txtNombre.getText();
+        if(isEmpty()){return;}
+
+        String nombre = txtProducto.getText();
         double precio = D(txtPrecio.getText());
+
+        int confirm = JOptionPane.showConfirmDialog(this, "Desea Agregar El Siguiente Producto? \n" +
+                "Nombre: " + nombre + "\n" +
+                "Precio: " + precio + "$\n", "Confirmar ", JOptionPane.YES_NO_OPTION);
+
+        if(confirm == JOptionPane.NO_OPTION){return;}
 
         int count = 0, index = 0;
 
@@ -55,11 +73,15 @@ public class FormInventario extends JFrame {
             count++;
         }
 
-        JOptionPane.showMessageDialog(this, "Productos Agregados: \n " +
+        JOptionPane.showMessageDialog(this, "Productos Agregados: \n" +
                 "Nombre: " + nombre + "\n" +
                 "Precio: " + precio + "$\n");
 
         agregarProducto(index, nombre, precio);
+    }
+
+    private void btnIngresar(ActionEvent e) {
+        agregarP();
     }
 
     private void initComponents() {
@@ -74,7 +96,7 @@ public class FormInventario extends JFrame {
         txtResultados = new JTextArea();
         panel2 = new JPanel();
         label2 = new JLabel();
-        txtNombre = new JTextField();
+        txtProducto = new JTextField();
         label3 = new JLabel();
         txtPrecio = new JTextField();
         btnEliminar = new JButton();
@@ -140,8 +162,8 @@ public class FormInventario extends JFrame {
             label2.setFont(new Font("CaskaydiaMono NF SemiBold", Font.PLAIN, 20));
             label2.setName("label2");
 
-            //---- txtNombre ----
-            txtNombre.setName("txtNombre");
+            //---- txtProducto ----
+            txtProducto.setName("txtProducto");
 
             //---- label3 ----
             label3.setText("Precio");
@@ -160,6 +182,7 @@ public class FormInventario extends JFrame {
             btnIngresar.setText("Ingresar");
             btnIngresar.setFont(new Font("CaskaydiaMono NF SemiBold", Font.PLAIN, 18));
             btnIngresar.setName("btnIngresar");
+            btnIngresar.addActionListener(e -> btnIngresar(e));
 
             //---- btnEditar ----
             btnEditar.setText("Editar");
@@ -183,7 +206,7 @@ public class FormInventario extends JFrame {
                                 .addComponent(label3))
                             .addComponent(txtPrecio, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
                             .addComponent(label2)
-                            .addComponent(txtNombre, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtProducto, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel2Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(panel2Layout.createParallelGroup()
@@ -199,7 +222,7 @@ public class FormInventario extends JFrame {
                         .addGap(124, 124, 124)
                         .addComponent(label2)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtProducto, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label3)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -279,7 +302,7 @@ public class FormInventario extends JFrame {
     private JTextArea txtResultados;
     private JPanel panel2;
     private JLabel label2;
-    private JTextField txtNombre;
+    private JTextField txtProducto;
     private JLabel label3;
     private JTextField txtPrecio;
     private JButton btnEliminar;
