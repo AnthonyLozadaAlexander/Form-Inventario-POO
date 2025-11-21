@@ -14,16 +14,7 @@ import Clases.Producto;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
-import javax.swing.GroupLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.LayoutStyle;
+import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -63,6 +54,11 @@ public class FormInventario extends JFrame {
             if(p.getNombre().equals(nombre)){index = count;}
             count++;
         }
+
+        JOptionPane.showMessageDialog(this, "Productos Agregados: \n " +
+                "Nombre: " + nombre + "\n" +
+                "Precio: " + precio + "$\n");
+
         agregarProducto(index, nombre, precio);
     }
 
