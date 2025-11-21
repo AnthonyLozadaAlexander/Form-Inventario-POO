@@ -128,10 +128,10 @@ public class FormInventario extends JFrame {
             panel1.setLayout(panel1Layout);
             panel1Layout.setHorizontalGroup(
                 panel1Layout.createParallelGroup()
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
+                    .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                        .addContainerGap(133, Short.MAX_VALUE)
                         .addComponent(label1, GroupLayout.PREFERRED_SIZE, 271, GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(136, Short.MAX_VALUE))
+                        .addGap(118, 118, 118))
             );
             panel1Layout.setVerticalGroup(
                 panel1Layout.createParallelGroup()
