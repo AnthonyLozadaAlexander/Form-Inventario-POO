@@ -54,6 +54,7 @@ public class FormInventario extends JFrame {
         modelProducts.addRow(row);  }
 
     private void agregarP(){
+        StringBuilder datos = new StringBuilder();
         if(isEmpty()){return;}
 
         String nombre = txtProducto.getText();
@@ -78,6 +79,11 @@ public class FormInventario extends JFrame {
                 "Precio: " + precio + "$\n");
 
         agregarProducto(index, nombre, precio);
+
+        for(Producto p: listaProductos){
+            datos.append(p.mostrarInfo() + "\n");
+        }
+
     }
 
     public boolean verificarFilaSeleccionada(int row){
