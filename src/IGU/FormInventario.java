@@ -5,11 +5,9 @@
 package IGU;
 
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import Clases.Producto;
 
 import java.awt.Color;
@@ -35,7 +33,7 @@ public class FormInventario extends JFrame {
         TablaProductos.setModel(modelProducts);
     }
 
-    public boolean listaVacia(){
+    public boolean listEmpty(){
         if(listaProductos.isEmpty()){
             JOptionPane.showMessageDialog(this, "Error: No Hay Productos Registrados", "Error",
                     JOptionPane.ERROR_MESSAGE);
@@ -47,7 +45,7 @@ public class FormInventario extends JFrame {
 
     public void buscarP(){
 
-        if(listaVacia()){return;}
+        if(listEmpty()){return;}
         int index = 0;
         String nombreProducto = JOptionPane.showInputDialog(this, "Ingrese el nombre del producto a Buscar: ",
                 "Buscar Producto", JOptionPane.INFORMATION_MESSAGE);
@@ -83,7 +81,7 @@ public class FormInventario extends JFrame {
         modelProducts.addRow(row);  }
 
     private void eliminarP(){
-        if(listaVacia()){return;}
+        if(listEmpty()){return;}
 
         int row = TablaProductos.getSelectedRow(); // fila seleccionada
 
@@ -182,6 +180,13 @@ public class FormInventario extends JFrame {
 
     private void btnBuscar(ActionEvent e) {
         buscarP();
+    }
+
+    private void scrollPane1MouseClicked(MouseEvent e) {
+        int row = TablaProductos.getSelectedRow();
+
+        JOptionPane.showMessageDialog(this, "Fila Seleccionada["+row+"]", "Fila Seleccionada", JOptionPane.INFORMATION_MESSAGE);
+
     }
 
     private void initComponents() {
@@ -344,6 +349,12 @@ public class FormInventario extends JFrame {
         //======== scrollPane1 ========
         {
             scrollPane1.setName("scrollPane1");
+            scrollPane1.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    scrollPane1MouseClicked(e);
+                }
+            });
 
             //---- TablaProductos ----
             TablaProductos.setModel(new DefaultTableModel(2, 0));
