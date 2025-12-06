@@ -86,7 +86,7 @@ public class FormInventario extends JFrame {
         int row = TablaProductos.getSelectedRow(); // fila seleccionada
 
         listaProductos.remove(row);
-        listaProductos.remove(row);
+        modelProducts.removeRow(row);
     }
 
     private void agregarP(){
