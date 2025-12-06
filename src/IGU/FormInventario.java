@@ -185,8 +185,9 @@ public class FormInventario extends JFrame {
     private void scrollPane1MouseClicked(MouseEvent e) {
         int row = TablaProductos.getSelectedRow();
 
-        JOptionPane.showMessageDialog(this, "Fila Seleccionada["+row+"]", "Fila Seleccionada", JOptionPane.INFORMATION_MESSAGE);
-
+        if(row >= 0) {
+            JOptionPane.showMessageDialog(this, "Fila Seleccionada[" + row + "]", "Fila Seleccionada", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     private void initComponents() {
