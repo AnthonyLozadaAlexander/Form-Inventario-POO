@@ -127,7 +127,7 @@ public class FormInventario extends JFrame {
 
         agregarProducto(index, nombre, precio);
 
-        txtHistorial.setText("Producto["+index+"] Agregado: \n");
+        datos.append("\nProducto["+index+"] Agregado: \n");
         for(Producto p: listaProductos){
             datos.append(p.mostrarInfo() + "\n");
         }
