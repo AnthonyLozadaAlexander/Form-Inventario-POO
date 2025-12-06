@@ -190,6 +190,10 @@ public class FormInventario extends JFrame {
         }
     }
 
+    private void btnEliminar(ActionEvent e) {
+        eliminarP();
+    }
+
     private void initComponents() {
         setTitle("Formulario - Inventario");
         setResizable(false);
@@ -283,6 +287,7 @@ public class FormInventario extends JFrame {
             btnEliminar.setText("Eliminar");
             btnEliminar.setFont(new Font("CaskaydiaMono NF SemiBold", Font.PLAIN, 18));
             btnEliminar.setName("btnEliminar");
+            btnEliminar.addActionListener(e -> btnEliminar(e));
 
             //---- btnIngresar ----
             btnIngresar.setText("Ingresar");
