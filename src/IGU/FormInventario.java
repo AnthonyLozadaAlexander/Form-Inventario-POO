@@ -56,9 +56,12 @@ public class FormInventario extends JFrame {
             if(nombreProducto.equalsIgnoreCase(listaProductos.get(i).getNombre())){
                 index = i;
                 JOptionPane.showMessageDialog(this, "Producto Encontrado: \n" + "Indice: " + index + "\n" + "Nombre: " + listaProductos.get(i).getNombre() + "\n" + "Precio: " + listaProductos.get(i).getPrecio() + "$" + "\n" , "´Producto Encontrado["+index+"]", JOptionPane.INFORMATION_MESSAGE);
-                return;
+                break;
             }
         }
+
+        TablaProductos.setRowSelectionInterval(index, index); // muestra la fila encontrada
+
     }
 
     public double D(String txt){
