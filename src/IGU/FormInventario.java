@@ -44,6 +44,9 @@ public class FormInventario extends JFrame {
     }
 
     public void buscarP(){
+
+        listaVacia();
+
         String nombreProducto = JOptionPane.showInputDialog(this, "Ingrese el nombre del producto a Buscar: ",
                 "Buscar Producto", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -67,6 +70,9 @@ public class FormInventario extends JFrame {
         modelProducts.addRow(row);  }
 
     private void agregarP(){
+
+        listaVacia();
+
         StringBuilder datos = new StringBuilder();
         if(isEmpty()){return;}
 
