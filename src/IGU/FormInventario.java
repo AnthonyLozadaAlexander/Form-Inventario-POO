@@ -48,13 +48,15 @@ public class FormInventario extends JFrame {
     public void buscarP(){
 
         if(listaVacia()){return;}
-
+        int index = 0;
         String nombreProducto = JOptionPane.showInputDialog(this, "Ingrese el nombre del producto a Buscar: ",
                 "Buscar Producto", JOptionPane.INFORMATION_MESSAGE);
 
         for (int i = 0; i < listaProductos.size(); i++) {
             if(nombreProducto.equalsIgnoreCase(listaProductos.get(i).getNombre())){
-
+                index = i;
+                JOptionPane.showMessageDialog(this, "Producto Encontrado: \n" + "Indice: " + index + "\n" + "Nombre: " + listaProductos.get(i).getNombre() + "\n" + "Precio: " + listaProductos.get(i).getPrecio() + "$" + "\n" , "´Producto Encontrado["+index+"]", JOptionPane.INFORMATION_MESSAGE);
+                return;
             }
         }
     }
