@@ -160,6 +160,10 @@ public class FormInventario extends JFrame {
         editarP();
     }
 
+    private void btnBuscar(ActionEvent e) {
+        buscarP();
+    }
+
     private void initComponents() {
         setTitle("Formulario - Inventario");
         setResizable(false);
@@ -270,6 +274,7 @@ public class FormInventario extends JFrame {
             btnBuscar.setText("Buscar");
             btnBuscar.setFont(new Font("CaskaydiaMono NF SemiBold", Font.PLAIN, 18));
             btnBuscar.setName("btnBuscar");
+            btnBuscar.addActionListener(e -> btnBuscar(e));
 
             GroupLayout panel2Layout = new GroupLayout(panel2);
             panel2.setLayout(panel2Layout);
