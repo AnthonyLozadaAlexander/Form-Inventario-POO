@@ -35,17 +35,19 @@ public class FormInventario extends JFrame {
         TablaProductos.setModel(modelProducts);
     }
 
-    public void listaVacia(){
+    public boolean listaVacia(){
         if(listaProductos.isEmpty()){
             JOptionPane.showMessageDialog(this, "Error: No Hay Productos Registrados", "Error",
                     JOptionPane.ERROR_MESSAGE);
-            return;
+            return true;
         }
+
+        return false;
     }
 
     public void buscarP(){
 
-        listaVacia();
+        if(listaVacia()){return;}
 
         String nombreProducto = JOptionPane.showInputDialog(this, "Ingrese el nombre del producto a Buscar: ",
                 "Buscar Producto", JOptionPane.INFORMATION_MESSAGE);
@@ -71,7 +73,7 @@ public class FormInventario extends JFrame {
 
     private void agregarP(){
 
-        listaVacia();
+        if(listaVacia()){return;}
 
         StringBuilder datos = new StringBuilder();
         if(isEmpty()){return;}
