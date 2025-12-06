@@ -82,9 +82,16 @@ public class FormInventario extends JFrame {
         Object [] row = {Indice, nombre, precio};
         modelProducts.addRow(row);  }
 
-    private void agregarP(){
-
+    private void eliminarP(){
         if(listaVacia()){return;}
+
+        int row = TablaProductos.getSelectedRow(); // fila seleccionada
+
+        listaProductos.remove(row);
+        listaProductos.remove(row);
+    }
+
+    private void agregarP(){
 
         StringBuilder datos = new StringBuilder();
         if(isEmpty()){return;}
