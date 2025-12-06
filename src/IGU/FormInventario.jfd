@@ -55,6 +55,7 @@ new FormModel {
 					name: "btnEliminar"
 					"text": "Eliminar"
 					"font": &Font1 new java.awt.Font( "CaskaydiaMono NF SemiBold", 0, 18 )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnEliminar", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "btnIngresar"
