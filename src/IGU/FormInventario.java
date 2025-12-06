@@ -85,6 +85,16 @@ public class FormInventario extends JFrame {
 
         int row = TablaProductos.getSelectedRow(); // fila seleccionada
 
+        for (int i = 0; i < listaProductos.size() ; i++) {
+            if(listaProductos.get(i).equals(listaProductos.get(row))){
+                JOptionPane.showMessageDialog(this, "Se Elimino El Producto["+row+"]: \n" +
+                        "Nombre: " + listaProductos.get(i).getNombre() + "\n" +
+                        "Precio: " + listaProductos.get(i).getPrecio() + "$\n", "Producto["+row+"]",
+                        JOptionPane.INFORMATION_MESSAGE);
+                break;
+            }
+        }
+
         listaProductos.remove(row);
         modelProducts.removeRow(row);
     }
