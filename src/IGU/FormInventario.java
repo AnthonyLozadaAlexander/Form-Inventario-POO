@@ -51,6 +51,12 @@ public class FormInventario extends JFrame {
 
         String nombreProducto = JOptionPane.showInputDialog(this, "Ingrese el nombre del producto a Buscar: ",
                 "Buscar Producto", JOptionPane.INFORMATION_MESSAGE);
+
+        for (int i = 0; i < listaProductos.size(); i++) {
+            if(nombreProducto.equalsIgnoreCase(listaProductos.get(i).getNombre())){
+
+            }
+        }
     }
 
     public double D(String txt){
